@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+/* Base style resets and tweaks */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Premium Background Grid */
+.cyber-grid {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(20, 24, 38, 0.8) 0%, rgba(8, 10, 15, 0.98) 100%),
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+.cyber-grid-light {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.98) 100%),
+    linear-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+/* Glassmorphism custom styling utilities with high-fidelity borders */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.light-mode .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-mode .glass-card {
+  background: rgba(241, 245, 249, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  box-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(30, 41, 59, 0.5);
+  transform: translateY(-2px);
+}
+
+.light-mode .glass-card:hover {
+  border-color: rgba(15, 23, 42, 0.06);
+  background: rgba(241, 245, 249, 0.75);
+}
+
+/* Glowing Neon Card Accents for Threat Levels */
+.glow-critical {
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.1), inset 0 0 12px rgba(239, 68, 68, 0.05);
+}
+.glow-critical:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15), inset 0 0 15px rgba(239, 68, 68, 0.08);
+}
+
+.glow-high {
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.06), inset 0 0 10px rgba(245, 158, 11, 0.03);
+}
+.glow-high:hover {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.12), inset 0 0 12px rgba(245, 158, 11, 0.06);
+}
+
+.glow-medium {
+  border-color: rgba(234, 179, 8, 0.2);
+  box-shadow: 0 0 10px rgba(234, 179, 8, 0.04);
+}
+.glow-medium:hover {
+  border-color: rgba(234, 179, 8, 0.35);
+  box-shadow: 0 0 14px rgba(234, 179, 8, 0.08);
+}
+
+.glow-low {
+  border-color: rgba(148, 163, 184, 0.15);
+}
+.glow-low:hover {
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Map component heights and marker fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #030712 !important; 
+}
+
+/* Styling Leaflet zoom buttons for Dark Mode */
+.leaflet-bar a {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #1e293b !important;
+}
+
+/* Leaflet Popup Premium Dark Override */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  color: #f8fafc !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.15);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.light-mode .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.light-mode .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.25);
+}
+

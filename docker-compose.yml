@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./mcp-server:/workspace/mcp-server
+      - ./backend:/workspace
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET:-super-secret-key-change-in-production}
+      - MCP_SERVER_COMMAND=python /workspace/mcp-server/server.py
+      - DATABASE_URL=sqlite:///./guardian_ai.db
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: always
